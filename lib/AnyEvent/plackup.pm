@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use 5.008_001;
 use overload (
-    '""' => 'url',
+    '""' => 'origin',
     fallback => 1
 );
 
@@ -27,17 +27,17 @@ our $VERSION = '0.01';
 our @EXPORT = qw(plackup);
 
 sub plackup (@) {
-    my $self = __PACKAGE__->new(@_);
-    $self->run;
-    return $self;
+    return __PACKAGE__->new(@_);
 }
 
 sub new {
     my ($class, %args) = @_;
-    return bless {
+    my $self = bless {
         app  => delete $args{app},
         args => \%args,
     }, $class;
+    $self->_run;
+    return $self;
 }
 
 sub recv {
@@ -48,12 +48,12 @@ sub recv {
     return $cv->recv;
 }
 
-sub url {
+sub origin {
     my $self = shift;
     return sprintf "http://%s:%s", $self->host, $self->port;
 }
 
-sub run {
+sub _run {
     my $self = shift;
 
     weaken $self;
@@ -95,7 +95,7 @@ sub _mk_default_app {
 
         return sub {
             my $respond = shift;
-            $req->response_cv->cb(sub {
+            $req->_response_cv->cb(sub {
                 my $res = $_[0]->recv;
                 if (ref $res eq 'CODE') {
                     $res->($respond);
@@ -119,13 +119,50 @@ __END__
 
 =head1 NAME
 
-AnyEvent::plackup - 
+AnyEvent::plackup - Easily establish an HTTP server inside a program
 
 =head1 SYNOPSIS
 
   use AnyEvent::plackup;
 
+  my $server = plackup(); # port is automatically chosen
+  my $req = $server->recv; # isa Plack::Request
+
+  my $value = $req->parameters->{foo};
+
+  $req->respond([ 200, [], [ 'OK' ] ]);
+
+  # or specify PSGI app:
+
+  my $server = plackup(app => \&app);
+
 =head1 DESCRIPTION
+
+AnyEvent::plackup provides functionality of establishing an HTTP server inside a program using L<Twiggy>. If not specified, open port is automatically chosen.
+
+=head1 FUNCTIONS
+
+=over 4
+
+=item my $server = plackup([ app => \&app, port => $port, %args ])
+
+Creates and starts an HTTP server. Internally calls C<new> and C<run>.
+
+If I<app> is not specified, C<$server->recv> is available and you should respond this manually.
+
+=item my $server = AnyEvent::plackup->new([ app => \&app, port => $port, %args ])
+
+Creates an server instance. C<$server->run> is required to start.
+
+=item my $req = $server->recv
+
+Waits until next request comes. Returns an C<AnyEvent::plackup::Request> (isa C<Plack::Request>).
+
+=item my $origin = $server->origin, "$server"
+
+Returns server's origin. e.g. C<"http://0.0.0.0:8290">.
+
+=back
 
 =head1 AUTHOR
 

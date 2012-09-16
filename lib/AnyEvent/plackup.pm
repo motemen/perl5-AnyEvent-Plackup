@@ -144,15 +144,13 @@ AnyEvent::plackup provides functionality of establishing an HTTP server inside a
 
 =over 4
 
+=item my $server = AnyEvent::plackup->new([ app => \&app, port => $port, %args ])
+
 =item my $server = plackup([ app => \&app, port => $port, %args ])
 
 Creates and starts an HTTP server. Internally calls C<new> and C<run>.
 
-If I<app> is not specified, C<$server->recv> is available and you should respond this manually.
-
-=item my $server = AnyEvent::plackup->new([ app => \&app, port => $port, %args ])
-
-Creates an server instance. C<$server->run> is required to start.
+If I<app> is not specified, C<< $server->recv >> is available and you should respond this manually.
 
 =item my $req = $server->recv
 

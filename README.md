@@ -1,6 +1,6 @@
 # NAME
 
-AnyEvent::plackup - Establish an HTTP server inside a program
+AnyEvent::plackup - Easily establish an HTTP server inside a program
 
 # SYNOPSIS
 
@@ -23,15 +23,12 @@ AnyEvent::plackup provides functionality of establishing an HTTP server inside a
 
 # FUNCTIONS
 
+- my $server = AnyEvent::plackup->new(\[ app => \\&app, port => $port, %args \])
 - my $server = plackup(\[ app => \\&app, port => $port, %args \])
 
 Creates and starts an HTTP server. Internally calls `new` and `run`.
 
-If _app_ is not specified, `$server-`recv> is available and you should respond this manually.
-
-- my $server = AnyEvent::plackup->new(\[ app => \\&app, port => $port, %args \])
-
-Creates an server instance. `$server-`run> is required to start.
+If _app_ is not specified, `$server->recv` is available and you should respond this manually.
 
 - my $req = $server->recv
 

@@ -42,10 +42,16 @@ sub new {
 
 sub recv {
     my $self = shift;
-    my $cv = $self->request_cv
-        or croak 'request_cv not set; maybe specified app?';
-    $self->{request_cv} = AE::cv if $cv->ready; # reset
-    return $cv->recv;
+
+    croak 'plackup->recv is not available if app is set'
+        if $self->{app};
+
+    unless (@{ $self->{request_queue} }) {
+        $self->{request_cv} = AE::cv if $self->{request_cv}->ready;
+        $self->{request_cv}->recv;
+    }
+
+    return shift @{ $self->{request_queue} };
 }
 
 sub origin {
@@ -83,6 +89,9 @@ sub _mk_default_app {
     my $self = shift;
 
     $self->{request_cv} = AE::cv;
+    $self->{request_queue} = [];
+
+    weaken $self;
 
     require AnyEvent::plackup::Request;
 
@@ -91,7 +100,8 @@ sub _mk_default_app {
 
         my $req = AnyEvent::plackup::Request->new($env);
 
-        $self->request_cv->send($req);
+        push @{ $self->{request_queue} }, $req;
+        $self->{request_cv}->send if $self->{request_cv};
 
         return sub {
             my $respond = shift;

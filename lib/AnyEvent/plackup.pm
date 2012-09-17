@@ -120,7 +120,16 @@ sub _mk_default_app {
 sub DESTROY {
     my $self = shift;
     local $@;
-    $self->{twiggy}->{exit_guard}->end;
+    delete $self->{twiggy}->{listen_guards};
+}
+
+sub shutdown {
+    my $self = shift;
+    my $w; $w = AE::timer 0, 0, sub {
+        $self->{twiggy}->{exit_guard}->end;
+        undef $w;
+    };
+    $self->{twiggy}->{exit_guard}->recv;
 }
 
 1;

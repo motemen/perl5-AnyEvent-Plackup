@@ -1,4 +1,4 @@
-package AnyEvent::plackup;
+package AnyEvent::Plackup;
 use strict;
 use warnings;
 use 5.008_001;
@@ -93,12 +93,12 @@ sub _mk_default_app {
 
     weaken $self;
 
-    require AnyEvent::plackup::Request;
+    require AnyEvent::Plackup::Request;
 
     return sub {
         my ($env) = @_;
 
-        my $req = AnyEvent::plackup::Request->new($env);
+        my $req = AnyEvent::Plackup::Request->new($env);
 
         push @{ $self->{request_queue} }, $req;
         $self->{request_cv}->send if $self->{request_cv};
@@ -138,11 +138,11 @@ __END__
 
 =head1 NAME
 
-AnyEvent::plackup - Easily establish an HTTP server inside a program
+AnyEvent::Plackup - Easily establish an HTTP server inside a program
 
 =head1 SYNOPSIS
 
-  use AnyEvent::plackup;
+  use AnyEvent::Plackup;
 
   my $server = plackup(); # port is automatically chosen
   my $req = $server->recv; # isa Plack::Request
@@ -157,13 +157,13 @@ AnyEvent::plackup - Easily establish an HTTP server inside a program
 
 =head1 DESCRIPTION
 
-AnyEvent::plackup provides functionality of establishing an HTTP server inside a program using L<Twiggy>. If not specified, open port is automatically chosen.
+AnyEvent::Plackup provides functionality of establishing an HTTP server inside a program using L<Twiggy>. If not specified, open port is automatically chosen.
 
 =head1 FUNCTIONS
 
 =over 4
 
-=item my $server = AnyEvent::plackup->new([ app => \&app, port => $port, %args ])
+=item my $server = AnyEvent::Plackup->new([ app => \&app, port => $port, %args ])
 
 =item my $server = plackup([ app => \&app, port => $port, %args ])
 
@@ -173,7 +173,7 @@ If I<app> is not specified, C<< $server->recv >> is available and you should res
 
 =item my $req = $server->recv
 
-Waits until next request comes. Returns an C<AnyEvent::plackup::Request> (isa C<Plack::Request>).
+Waits until next request comes. Returns an C<AnyEvent::Plackup::Request> (isa C<Plack::Request>).
 
 =item my $origin = $server->origin, "$server"
 

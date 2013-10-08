@@ -16,7 +16,7 @@ carton.lock
 local/
 .prove
 Debian_CPANTS.txt
-/AnyEvent-plackup-*
+/AnyEvent-Plackup-*
 /.build
 /_build_params
 /Build

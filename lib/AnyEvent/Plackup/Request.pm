@@ -1,4 +1,4 @@
-package AnyEvent::plackup::Request;
+package AnyEvent::Plackup::Request;
 use strict;
 use warnings;
 use parent 'Plack::Request';
@@ -11,7 +11,7 @@ sub respond {
 
 sub _response_cv {
     my $self = shift;
-    return $self->env->{'anyevent.plackup.response_cv'} ||= AE::cv;
+    return $self->env->{'anyevent.Plackup.response_cv'} ||= AE::cv;
 }
 
 1;
@@ -20,7 +20,7 @@ __END__
 
 =head1 NAME
 
-AnyEvent::plackup::Request - Request object for AnyEvent::plackup
+AnyEvent::Plackup::Request - Request object for AnyEvent::Plackup
 
 =head1 SYNOPSIS
 

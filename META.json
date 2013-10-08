@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
    },
-   "name" : "AnyEvent-plackup",
+   "name" : "AnyEvent-Plackup",
    "no_index" : {
       "directory" : [
          "t",
@@ -62,13 +62,13 @@
    "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/motemen/AnyEvent-plackup/issues"
+         "web" : "https://github.com/motemen/perl5-AnyEvent-Plackup/issues"
       },
-      "homepage" : "https://github.com/motemen/AnyEvent-plackup",
+      "homepage" : "https://github.com/motemen/perl5-AnyEvent-Plackup",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/motemen/AnyEvent-plackup",
-         "web" : "https://github.com/motemen/AnyEvent-plackup"
+         "url" : "git://github.com/motemen/perl5-AnyEvent-Plackup.git",
+         "web" : "https://github.com/motemen/perl5-AnyEvent-Plackup"
       }
    },
    "version" : "0.01"

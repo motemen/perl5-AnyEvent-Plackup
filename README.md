@@ -1,12 +1,12 @@
 # NAME
 
-AnyEvent::plackup - Easily establish an HTTP server inside a program
+AnyEvent::Plackup - Easily establish an HTTP server inside a program
 
 # SYNOPSIS
 
-    use AnyEvent::plackup;
+    use AnyEvent::Plackup;
 
-    my $server = plackup(); # port is automatically chosen
+    my $server = Plackup(); # port is automatically chosen
     my $req = $server->recv; # isa Plack::Request
 
     my $value = $req->parameters->{foo};
@@ -15,16 +15,16 @@ AnyEvent::plackup - Easily establish an HTTP server inside a program
 
     # or specify PSGI app:
 
-    my $server = plackup(app => \&app);
+    my $server = Plackup(app => \&app);
 
 # DESCRIPTION
 
-AnyEvent::plackup provides functionality of establishing an HTTP server inside a program using [Twiggy](http://search.cpan.org/perldoc?Twiggy). If not specified, open port is automatically chosen.
+AnyEvent::Plackup provides functionality of establishing an HTTP server inside a program using [Twiggy](http://search.cpan.org/perldoc?Twiggy). If not specified, open port is automatically chosen.
 
 # FUNCTIONS
 
-- my $server = AnyEvent::plackup->new(\[ app => \\&app, port => $port, %args \])
-- my $server = plackup(\[ app => \\&app, port => $port, %args \])
+- my $server = AnyEvent::Plackup->new(\[ app => \\&app, port => $port, %args \])
+- my $server = Plackup(\[ app => \\&app, port => $port, %args \])
 
     Creates and starts an HTTP server. Internally calls `new` and `run`.
 
@@ -32,7 +32,7 @@ AnyEvent::plackup provides functionality of establishing an HTTP server inside a
 
 - my $req = $server->recv
 
-    Waits until next request comes. Returns an `AnyEvent::plackup::Request` (isa `Plack::Request`).
+    Waits until next request comes. Returns an `AnyEvent::Plackup::Request` (isa `Plack::Request`).
 
 - my $origin = $server->origin, "$server"
 

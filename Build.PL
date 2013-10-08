@@ -23,8 +23,8 @@ my %args = (
         'Module::Build' => 0.38,
     },
 
-    name            => 'AnyEvent-plackup',
-    module_name     => 'AnyEvent::plackup',
+    name            => 'AnyEvent-Plackup',
+    module_name     => 'AnyEvent::Plackup',
     allow_pureperl => 0,
 
     script_files => [glob('script/*'), glob('bin/*')],

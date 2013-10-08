@@ -26,17 +26,17 @@ AnyEvent::plackup provides functionality of establishing an HTTP server inside a
 - my $server = AnyEvent::plackup->new(\[ app => \\&app, port => $port, %args \])
 - my $server = plackup(\[ app => \\&app, port => $port, %args \])
 
-Creates and starts an HTTP server. Internally calls `new` and `run`.
+    Creates and starts an HTTP server. Internally calls `new` and `run`.
 
-If _app_ is not specified, `$server->recv` is available and you should respond this manually.
+    If _app_ is not specified, `$server->recv` is available and you should respond this manually.
 
 - my $req = $server->recv
 
-Waits until next request comes. Returns an `AnyEvent::plackup::Request` (isa `Plack::Request`).
+    Waits until next request comes. Returns an `AnyEvent::plackup::Request` (isa `Plack::Request`).
 
 - my $origin = $server->origin, "$server"
 
-Returns server's origin. e.g. `"http://0.0.0.0:8290"`.
+    Returns server's origin. e.g. `"http://0.0.0.0:8290"`.
 
 # AUTHOR
 

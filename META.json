@@ -1,0 +1,75 @@
+{
+   "abstract" : "Easily establish an HTTP server inside a program",
+   "author" : [
+      "motemen <motemen@gmail.com>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Minilla/v0.6.8, CPAN::Meta::Converter version 2.131560",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "AnyEvent-plackup",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "xt",
+         "inc",
+         "share",
+         "eg",
+         "examples",
+         "author"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.59",
+            "Test::More" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "CPAN::Meta" : "0",
+            "CPAN::Meta::Prereqs" : "0",
+            "Module::Build" : "0.38"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Test::CPAN::Meta" : "0",
+            "Test::MinimumVersion" : "0.10108",
+            "Test::Pod" : "1.41",
+            "Test::Spellunker" : "v0.2.7"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "AnyEvent" : "0",
+            "Carp" : "0",
+            "Exporter::Lite" : "0",
+            "Plack::Request" : "0",
+            "Scalar::Util" : "0",
+            "Test::TCP" : "0",
+            "Twiggy" : "0",
+            "perl" : "5.008001"
+         }
+      }
+   },
+   "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/motemen/AnyEvent-plackup/issues"
+      },
+      "homepage" : "https://github.com/motemen/AnyEvent-plackup",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/motemen/AnyEvent-plackup",
+         "web" : "https://github.com/motemen/AnyEvent-plackup"
+      }
+   },
+   "version" : "0.01"
+}

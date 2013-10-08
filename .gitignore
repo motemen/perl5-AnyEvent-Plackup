@@ -16,3 +16,10 @@ carton.lock
 local/
 .prove
 Debian_CPANTS.txt
+/AnyEvent-plackup-*
+/.build
+/_build_params
+/Build
+!Build/
+!META.json
+!LICENSE

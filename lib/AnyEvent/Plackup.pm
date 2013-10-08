@@ -179,6 +179,10 @@ Waits until next request comes. Returns an C<AnyEvent::Plackup::Request> (isa C<
 
 Returns server's origin. e.g. C<"http://0.0.0.0:8290">.
 
+=item $server->shutdown
+
+Shuts down the server immediately.
+
 =back
 
 =head1 AUTHOR

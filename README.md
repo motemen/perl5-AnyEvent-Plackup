@@ -6,7 +6,7 @@ AnyEvent::Plackup - Easily establish an HTTP server inside a program
 
     use AnyEvent::Plackup;
 
-    my $server = Plackup(); # port is automatically chosen
+    my $server = plackup(); # port is automatically chosen
     my $req = $server->recv; # isa Plack::Request
 
     my $value = $req->parameters->{foo};
@@ -15,7 +15,7 @@ AnyEvent::Plackup - Easily establish an HTTP server inside a program
 
     # or specify PSGI app:
 
-    my $server = Plackup(app => \&app);
+    my $server = plackup(app => \&app);
 
 # DESCRIPTION
 
@@ -24,7 +24,7 @@ AnyEvent::Plackup provides functionality of establishing an HTTP server inside a
 # FUNCTIONS
 
 - my $server = AnyEvent::Plackup->new(\[ app => \\&app, port => $port, %args \])
-- my $server = Plackup(\[ app => \\&app, port => $port, %args \])
+- my $server = plackup(\[ app => \\&app, port => $port, %args \])
 
     Creates and starts an HTTP server. Internally calls `new` and `run`.
 
@@ -37,6 +37,10 @@ AnyEvent::Plackup provides functionality of establishing an HTTP server inside a
 - my $origin = $server->origin, "$server"
 
     Returns server's origin. e.g. `"http://0.0.0.0:8290"`.
+
+- $server->shutdown
+
+    Shuts down the server immediately.
 
 # AUTHOR
 

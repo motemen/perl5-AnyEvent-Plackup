@@ -5,6 +5,7 @@ requires 'Plack::Request';
 requires 'Scalar::Util';
 requires 'Test::TCP';
 requires 'Twiggy';
+requires 'parent';
 requires 'perl', '5.008001';
 
 on build => sub {

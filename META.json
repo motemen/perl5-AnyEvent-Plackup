@@ -55,6 +55,7 @@
             "Scalar::Util" : "0",
             "Test::TCP" : "0",
             "Twiggy" : "0",
+            "parent" : "0",
             "perl" : "5.008001"
          }
       }

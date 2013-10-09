@@ -53,7 +53,7 @@
             "Exporter::Lite" : "0",
             "Plack::Request" : "0",
             "Scalar::Util" : "0",
-            "Test::TCP" : "0",
+            "Test::TCP" : "2",
             "Twiggy" : "0",
             "parent" : "0",
             "perl" : "5.008001"

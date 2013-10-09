@@ -9,7 +9,7 @@ use overload (
 
 use AnyEvent;
 use Twiggy::Server;
-use Test::TCP qw(empty_port);
+use Net::EmptyPort qw(empty_port);
 use Scalar::Util qw(weaken);
 use Carp;
 

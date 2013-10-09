@@ -3,7 +3,7 @@ requires 'Carp';
 requires 'Exporter::Lite';
 requires 'Plack::Request';
 requires 'Scalar::Util';
-requires 'Test::TCP';
+requires 'Test::TCP', 2;
 requires 'Twiggy';
 requires 'parent';
 requires 'perl', '5.008001';

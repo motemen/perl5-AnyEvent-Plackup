@@ -50,6 +50,7 @@
          "requires" : {
             "AnyEvent" : "0",
             "Carp" : "0",
+            "Class::Accessor::Lite" : "0",
             "Exporter::Lite" : "0",
             "Plack::Request" : "0",
             "Scalar::Util" : "0",

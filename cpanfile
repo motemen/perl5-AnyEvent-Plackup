@@ -1,5 +1,6 @@
 requires 'AnyEvent';
 requires 'Carp';
+requires 'Class::Accessor::Lite';
 requires 'Exporter::Lite';
 requires 'Plack::Request';
 requires 'Scalar::Util';

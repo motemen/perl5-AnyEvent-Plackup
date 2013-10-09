@@ -23,22 +23,23 @@ AnyEvent::Plackup provides functionality of establishing an HTTP server inside a
 
 # FUNCTIONS
 
-- my $server = AnyEvent::Plackup->new(\[ app => \\&app, port => $port, %args \])
-- my $server = plackup(\[ app => \\&app, port => $port, %args \])
+- `my $server = AnyEvent::Plackup->new([ app => \&app, port => $port, %args ])`
+- `my $server = plackup([ app => \&app, port => $port, %args ])`
 
     Creates and starts an HTTP server. Internally calls `new` and `run`.
 
     If _app_ is not specified, `$server->recv` is available and you should respond this manually.
 
-- my $req = $server->recv
+- `my $req = $server->recv`
 
     Waits until next request comes. Returns an `AnyEvent::Plackup::Request` (isa `Plack::Request`).
 
-- my $origin = $server->origin, "$server"
+- `my $origin = $server->origin`
+- `my $origin = "$server"`
 
     Returns server's origin. e.g. `"http://0.0.0.0:8290"`.
 
-- $server->shutdown
+- `$server->shutdown`
 
     Shuts down the server immediately.
 

@@ -163,23 +163,25 @@ AnyEvent::Plackup provides functionality of establishing an HTTP server inside a
 
 =over 4
 
-=item my $server = AnyEvent::Plackup->new([ app => \&app, port => $port, %args ])
+=item C<< my $server = AnyEvent::Plackup->new([ app => \&app, port => $port, %args ]) >>
 
-=item my $server = plackup([ app => \&app, port => $port, %args ])
+=item C<< my $server = plackup([ app => \&app, port => $port, %args ]) >>
 
 Creates and starts an HTTP server. Internally calls C<new> and C<run>.
 
 If I<app> is not specified, C<< $server->recv >> is available and you should respond this manually.
 
-=item my $req = $server->recv
+=item C<< my $req = $server->recv >>
 
 Waits until next request comes. Returns an C<AnyEvent::Plackup::Request> (isa C<Plack::Request>).
 
-=item my $origin = $server->origin, "$server"
+=item C<< my $origin = $server->origin >>
+
+=item C<< my $origin = "$server" >>
 
 Returns server's origin. e.g. C<"http://0.0.0.0:8290">.
 
-=item $server->shutdown
+=item C<< $server->shutdown >>
 
 Shuts down the server immediately.
 

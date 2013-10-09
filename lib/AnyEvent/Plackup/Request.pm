@@ -11,7 +11,7 @@ sub respond {
 
 sub _response_cv {
     my $self = shift;
-    return $self->env->{'anyevent.Plackup.response_cv'} ||= AE::cv;
+    return $self->env->{'anyevent.plackup.response_cv'} ||= AE::cv;
 }
 
 1;

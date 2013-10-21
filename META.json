@@ -60,6 +60,12 @@
             "parent" : "0",
             "perl" : "5.008001"
          }
+      },
+      "test" : {
+         "requires" : {
+            "LWP::Simple" : "0",
+            "Test::More" : "0"
+         }
       }
    },
    "release_status" : "unstable",

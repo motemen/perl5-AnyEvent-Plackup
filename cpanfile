@@ -9,6 +9,11 @@ requires 'Twiggy';
 requires 'parent';
 requires 'perl', '5.008001';
 
+on test => sub {
+    requires 'Test::More';
+    requires 'LWP::Simple';
+};
+
 on build => sub {
     requires 'ExtUtils::MakeMaker', '6.59';
     requires 'Test::More';

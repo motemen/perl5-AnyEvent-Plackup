@@ -23,7 +23,7 @@ use Class::Accessor::Lite (
 
 use Exporter::Lite;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 our @EXPORT = qw(plackup);
 
 sub plackup (@) {

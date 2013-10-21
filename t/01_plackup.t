@@ -5,7 +5,7 @@ use Test::SharedFork;
 use AnyEvent::Plackup;
 use LWP::Simple qw($ua);
 
-my $server = plackup();
+my $server = plackup(host => '127.0.0.1');
 
 if (my $pid = fork()) {
     my $req = $server->recv;
